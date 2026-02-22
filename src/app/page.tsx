@@ -34,14 +34,19 @@ export default function GalleryPage() {
   const drawing = drawings[index];
 
   return (
-    <main className="flex-1 flex flex-col items-center justify-center gap-8 px-4 py-10">
-      {/* Title */}
-      <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-center">
-        My Doodles
-      </h1>
+    <main className="flex-1 flex flex-col items-center justify-center gap-6 px-4 py-10">
+      {/* Logo */}
+      <Image
+        src="/UI/logo.png"
+        alt="My Doodles"
+        width={300}
+        height={100}
+        className="object-contain"
+        priority
+      />
 
       {/* Image card */}
-      <div className="relative w-full max-w-2xl aspect-square rounded-2xl overflow-hidden border border-(--border) bg-(--card-bg) shadow-lg">
+      <div className="relative w-full max-w-2xl aspect-square sketchy-border bg-(--card-bg) p-2">
         <Image
           key={drawing.src}
           src={drawing.src}
@@ -53,44 +58,37 @@ export default function GalleryPage() {
       </div>
 
       {/* Caption */}
-      <p className="text-lg text-neutral-400">{drawing.title}</p>
+      <p
+        className="text-xl text-(--fg) opacity-70"
+        style={{ fontFamily: "'Caveat', cursive" }}
+      >
+        {drawing.title}
+      </p>
 
       {/* Navigation */}
-      <div className="flex items-center gap-4 sm:gap-6">
+      <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
         <button
           onClick={goFirst}
           disabled={index === 0}
-          aria-label="First drawing"
-          className="flex items-center gap-1 px-3 py-2.5 rounded-full border border-(--border) bg-(--card-bg) hover:border-(--accent) hover:text-(--accent) disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+          aria-label="Newest drawing"
+          className="icon-btn"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-            <path d="M11 19l-7-7 7-7M17 19l-7-7 7-7" />
-          </svg>
+          <Image src="/UI/last75.png" alt="Newest" width={48} height={48} />
         </button>
 
         <button
           onClick={prev}
           disabled={index === 0}
           aria-label="Previous drawing"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-(--border) bg-(--card-bg) hover:border-(--accent) hover:text-(--accent) disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+          className="icon-btn"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            viewBox="0 0 24 24"
-          >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          Previous
+          <Image src="/UI/prev75.png" alt="Previous" width={48} height={48} />
         </button>
 
-        <span className="text-sm text-neutral-500 tabular-nums">
+        <span
+          className="text-xl tabular-nums px-2 opacity-60"
+          style={{ fontFamily: "'Caveat', cursive" }}
+        >
           {index + 1} / {total}
         </span>
 
@@ -98,38 +96,23 @@ export default function GalleryPage() {
           onClick={next}
           disabled={index === total - 1}
           aria-label="Next drawing"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-(--border) bg-(--card-bg) hover:border-(--accent) hover:text-(--accent) disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+          className="icon-btn"
         >
-          Next
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
+          <Image src="/UI/next75.png" alt="Next" width={48} height={48} />
         </button>
 
         <button
           onClick={goLast}
           disabled={index === total - 1}
           aria-label="Last drawing"
-          className="flex items-center gap-1 px-3 py-2.5 rounded-full border border-(--border) bg-(--card-bg) hover:border-(--accent) hover:text-(--accent) disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-sm font-medium"
+          className="icon-btn"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-            <path d="M13 5l7 7-7 7M7 5l7 7-7 7" />
-          </svg>
+          <Image src="/UI/newest75.png" alt="Last" width={48} height={48} />
         </button>
       </div>
 
       {/* Footer hint */}
-      <p className="text-xs text-neutral-600 mt-4">
+      <p className="text-sm opacity-40 mt-2">
         Tip: Use ← → arrow keys to navigate, Home / End to jump to first / last
       </p>
     </main>

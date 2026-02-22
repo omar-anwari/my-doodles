@@ -1,16 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Caveat:wght@400;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0a;
-  --fg: #ededed;
-  --accent: #a78bfa;
-  --accent-hover: #c4b5fd;
-  --card-bg: #141414;
-  --border: #262626;
+  --bg: #ffe566;
+  --fg: #2c2c2c;
+  --accent: #e06c75;
+  --accent-hover: #c9555e;
+  --card-bg: #ffffff;
+  --border: #2c2c2c;
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-family: "Patrick Hand", cursive;
 }
+
+/* Image card */
+.sketchy-border {
+  border: 3px solid var(--border);
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+/* Icon button */
+.icon-btn {
+  transition: transform 0.15s ease, opacity 0.15s ease;
+  cursor: pointer;
+}
+
+.icon-btn:hover:not(:disabled) {
+  transform: scale(1.15);
+}
+
+.icon-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.icon-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
