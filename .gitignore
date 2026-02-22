@@ -25,3 +25,4 @@ next-env.d.ts
 
 # Ignore all images in drawings folder
 public/drawings/*
+!public/drawings/.gitkeep
